@@ -77,13 +77,13 @@ def plot_lingkaran_juring(radius, sudut_derajat):
                                  marker=dict(size=8, color='red'),
                                  text=['B'], textposition='top left', textfont=dict(size=14, color='red')))
                                  
-        # Posisi Teks Sudut Alpha (di tengah juring)
+        # Posisi Teks Sudut Alpha (di tengah juring) - Menggunakan karakter Unicode 'α'
         mid_angle = visual_sudut_radian / 2
         label_radius_offset = radius * 0.4
         fig.add_trace(go.Scatter(x=[label_radius_offset * math.cos(mid_angle)],
                                  y=[label_radius_offset * math.sin(mid_angle)],
                                  mode='text',
-                                 text=[r'$\alpha$'], # Simbol Alpha
+                                 text=['α'], # Menggunakan karakter Unicode alpha secara langsung
                                  textposition='middle center', textfont=dict(size=20, color='darkgreen')))
 
 
