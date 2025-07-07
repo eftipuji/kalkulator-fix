@@ -37,7 +37,7 @@ def plot_lingkaran_juring_animated(radius, max_sudut_animasi):
                          marker=dict(size=8, color='red'),
                          text=['B'], textposition='top left', textfont=dict(size=14, color='red')),
               go.Scatter(x=[], y=[], mode='text',
-                         text=[r'$\theta$'],
+                         text=[r'$\alpha$'], # Perubahan di sini: kembali ke r'$\alpha$'
                          textposition='middle center', textfont=dict(size=20, color='darkgreen'))],
         layout=go.Layout(
             xaxis=dict(range=[-radius * 1.2, radius * 1.2], showgrid=False, zeroline=False, showticklabels=False, fixedrange=True),
