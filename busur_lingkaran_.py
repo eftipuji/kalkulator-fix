@@ -114,7 +114,7 @@ def kalkulator_menu():
 
     with col1:
         radius = st.number_input(
-            "Masukkan Jari-jari Lingkaran (cm)", # Perubahan di sini
+            "Masukkan Jari-jari Lingkaran (cm)", # Teks input jari-jari diubah
             min_value=0.01,
             value=10.0,
             format="%.2f",
@@ -154,10 +154,10 @@ def kalkulator_menu():
                 Dengan Jari-jari **{radius:.2f} cm** dan Sudut Pusat **{sudut_derajat:.1f}°**:
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white; margin-top: 15px;">
-                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f} cm</span> # Perubahan di sini
+                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f} cm</span> # Satuan cm ditambahkan
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white;">
-                Luas Juring: <span style="color: yellow;">{luas_juring:.4f} cm²</span> # Perubahan di sini
+                Luas Juring: <span style="color: yellow;">{luas_juring:.4f} cm²</span> # Satuan cm² ditambahkan
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -190,8 +190,8 @@ def penjelasan_rumus_menu():
     st.latex(r'''s = r \times \theta_{radian}''')
     st.markdown("""
     Di mana:
-    * $s$ = Panjang Busur (cm)
-    * $r$ = Jari-jari lingkaran (cm)
+    * $s$ = Panjang Busur (**cm**) # Satuan cm ditambahkan
+    * $r$ = Jari-jari lingkaran (**cm**)
     * $\\theta_{radian}$ = Sudut pusat juring dalam satuan **radian**
 
     **Penting:** Jika sudut yang Anda miliki dalam **derajat**, Anda harus mengubahnya terlebih dahulu ke radian menggunakan rumus konversi:
@@ -206,8 +206,8 @@ def penjelasan_rumus_menu():
     st.latex(r'''A = \frac{1}{2} r^2 \times \theta_{radian}''')
     st.markdown("""
     Di mana:
-    * $A$ = Luas Juring (cm²)
-    * $r$ = Jari-jari lingkaran (cm)
+    * $A$ = Luas Juring (**cm²**) # Satuan cm² ditambahkan
+    * $r$ = Jari-jari lingkaran (**cm**)
     * $\\theta_{radian}$ = Sudut pusat juring dalam satuan **radian**
 
     Sama seperti panjang busur, jika sudut Anda dalam **derajat**, Anda perlu mengonversinya ke radian terlebih dahulu.
