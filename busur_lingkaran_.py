@@ -114,7 +114,7 @@ def kalkulator_menu():
 
     with col1:
         radius = st.number_input(
-            "Masukkan Jari-jari Lingkaran (cm)", # Mengubah label input jari-jari
+            "Masukkan Jari-jari Lingkaran (cm)", # Label input jari-jari diubah
             min_value=0.01,
             value=10.0,
             format="%.2f",
@@ -134,7 +134,6 @@ def kalkulator_menu():
     st.write("---")
     
     st.header("👁️ Visualisasi")
-    # Memanggil fungsi visualisasi statis
     fig_lingkaran = plot_lingkaran_juring(radius, sudut_derajat)
     st.plotly_chart(fig_lingkaran, use_container_width=True)
 
@@ -154,10 +153,10 @@ def kalkulator_menu():
                 Dengan Jari-jari **{radius:.2f} cm** dan Sudut Pusat **{sudut_derajat:.1f}°**:
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white; margin-top: 15px;">
-                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f} **cm**</span> # DITAMBAHKAN "cm"
+                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f} **cm**</span>
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white;">
-                Luas Juring: <span style="color: yellow;">{luas_juring:.4f} **cm²**</span> # DITAMBAHKAN "cm²"
+                Luas Juring: <span style="color: yellow;">{luas_juring:.4f} **cm²**</span>
             </p>
         </div>
         """, unsafe_allow_html=True)
