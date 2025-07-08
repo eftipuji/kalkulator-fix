@@ -99,7 +99,7 @@ def plot_lingkaran_juring(radius, sudut_derajat):
 
 # --- Halaman Menu 1: Kalkulator Busur & Juring ---
 def kalkulator_menu():
-    st.title("📏 Kalkulator Panjang Busur & Luas Juring Lingkaran �")
+    st.title("📏 Kalkulator Panjang Busur & Luas Juring Lingkaran 📐")
     st.markdown("""
     Selamat datang di kalkulator interaktif! Masukkan nilai **jari-jari** lingkaran dan **sudut pusat** juring
     (dalam derajat) untuk menemukan panjang busur dan luas juringnya.
@@ -247,4 +247,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-�
