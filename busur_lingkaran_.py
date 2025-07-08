@@ -20,7 +20,7 @@ def hitung_busur_juring(radius, sudut_derajat):
     luas_juring = 0.5 * (radius**2) * sudut_radian
     return panjang_busur, luas_juring
 
-# --- Fungsi untuk Membuat Visualisasi Lingkaran (Statis) ---
+# --- Fungsi untuk Membuat Visualisasi Lingkaran ---
 def plot_lingkaran_juring(radius, sudut_derajat):
     fig = go.Figure()
 
@@ -56,8 +56,8 @@ def plot_lingkaran_juring(radius, sudut_derajat):
         fig.add_trace(go.Scatter(x=[0, radius * math.cos(0)], y=[0, radius * math.sin(0)],
                                  mode='lines', name='Radius 1', line=dict(color='darkblue', width=2)))
         if visual_sudut_radian > 0:
-            fig.add_trace(go.Scatter(x=[0, radius * math.cos(visual_sudut_radian)], y=[0, radius * math.sin(visual_sudut_radian)],
-                                 mode='lines', name='Radius 2', line=dict(color='darkblue', width=2)))
+             fig.add_trace(go.Scatter(x=[0, radius * math.cos(visual_sudut_radian)], y=[0, radius * math.sin(visual_sudut_radian)],
+                                  mode='lines', name='Radius 2', line=dict(color='darkblue', width=2)))
         
         # --- Menambahkan Label pada Visualisasi ---
         # Titik Pusat O
@@ -77,13 +77,13 @@ def plot_lingkaran_juring(radius, sudut_derajat):
                                  marker=dict(size=8, color='red'),
                                  text=['B'], textposition='top left', textfont=dict(size=14, color='red')))
                                  
-        # Posisi Teks Sudut Alpha (di tengah juring) - Menggunakan karakter Unicode 'α'
+        # Posisi Teks Sudut Alfa (di tengah juring)
         mid_angle = visual_sudut_radian / 2
         label_radius_offset = radius * 0.4
         fig.add_trace(go.Scatter(x=[label_radius_offset * math.cos(mid_angle)],
                                  y=[label_radius_offset * math.sin(mid_angle)],
                                  mode='text',
-                                 text=['α'], # Menggunakan karakter Unicode alpha secara langsung
+                                 text=[r'$\alpha$'],
                                  textposition='middle center', textfont=dict(size=20, color='darkgreen')))
 
 
@@ -134,7 +134,6 @@ def kalkulator_menu():
     st.write("---")
     
     st.header("👁️ Visualisasi")
-    # Memanggil fungsi visualisasi statis
     fig_lingkaran = plot_lingkaran_juring(radius, sudut_derajat)
     st.plotly_chart(fig_lingkaran, use_container_width=True)
 
@@ -154,10 +153,10 @@ def kalkulator_menu():
                 Dengan Jari-jari **{radius:.2f}** dan Sudut Pusat **{sudut_derajat:.1f}°**:
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white; margin-top: 15px;">
-                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f}</span> unit
+                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f}</span> cm
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white;">
-                Luas Juring: <span style="color: yellow;">{luas_juring:.4f}</span> unit²
+                Luas Juring: <span style="color: yellow;">{luas_juring:.4f}</span> cm²
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -226,7 +225,7 @@ def main():
     # Konfigurasi halaman umum
     st.set_page_config(
         page_title="Aplikasi Geometri Lingkaran Interaktif 🌌",
-        page_icon="🧭",
+        page_icon="�",
         layout="wide",
         initial_sidebar_state="expanded"
     )
@@ -248,3 +247,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+�
