@@ -20,7 +20,7 @@ def hitung_busur_juring(radius, sudut_derajat):
     luas_juring = 0.5 * (radius**2) * sudut_radian
     return panjang_busur, luas_juring
 
-# --- Fungsi untuk Membuat Visualisasi Lingkaran ---
+# --- Fungsi untuk Membuat Visualisasi Lingkaran (Statis) ---
 def plot_lingkaran_juring(radius, sudut_derajat):
     fig = go.Figure()
 
@@ -56,8 +56,8 @@ def plot_lingkaran_juring(radius, sudut_derajat):
         fig.add_trace(go.Scatter(x=[0, radius * math.cos(0)], y=[0, radius * math.sin(0)],
                                  mode='lines', name='Radius 1', line=dict(color='darkblue', width=2)))
         if visual_sudut_radian > 0:
-             fig.add_trace(go.Scatter(x=[0, radius * math.cos(visual_sudut_radian)], y=[0, radius * math.sin(visual_sudut_radian)],
-                                  mode='lines', name='Radius 2', line=dict(color='darkblue', width=2)))
+            fig.add_trace(go.Scatter(x=[0, radius * math.cos(visual_sudut_radian)], y=[0, radius * math.sin(visual_sudut_radian)],
+                                 mode='lines', name='Radius 2', line=dict(color='darkblue', width=2)))
         
         # --- Menambahkan Label pada Visualisasi ---
         # Titik Pusat O
@@ -77,13 +77,13 @@ def plot_lingkaran_juring(radius, sudut_derajat):
                                  marker=dict(size=8, color='red'),
                                  text=['B'], textposition='top left', textfont=dict(size=14, color='red')))
                                  
-        # Posisi Teks Sudut Alfa (di tengah juring)
+        # Posisi Teks Sudut Alpha (di tengah juring) - Menggunakan karakter Unicode 'α'
         mid_angle = visual_sudut_radian / 2
         label_radius_offset = radius * 0.4
         fig.add_trace(go.Scatter(x=[label_radius_offset * math.cos(mid_angle)],
                                  y=[label_radius_offset * math.sin(mid_angle)],
                                  mode='text',
-                                 text=[r'$\alpha$'],
+                                 text=['α'], # Menggunakan karakter Unicode alpha secara langsung
                                  textposition='middle center', textfont=dict(size=20, color='darkgreen')))
 
 
@@ -114,11 +114,11 @@ def kalkulator_menu():
 
     with col1:
         radius = st.number_input(
-            "Masukkan Jari-jari Lingkaran (r)",
+            "Masukkan Jari-jari Lingkaran (cm)", # Perubahan di sini
             min_value=0.01,
             value=10.0,
             format="%.2f",
-            help="Jari-jari lingkaran harus bernilai positif."
+            help="Jari-jari lingkaran harus bernilai positif. Asumsi satuan cm."
         )
     with col2:
         sudut_derajat = st.slider(
@@ -134,6 +134,7 @@ def kalkulator_menu():
     st.write("---")
     
     st.header("👁️ Visualisasi")
+    # Memanggil fungsi visualisasi statis
     fig_lingkaran = plot_lingkaran_juring(radius, sudut_derajat)
     st.plotly_chart(fig_lingkaran, use_container_width=True)
 
@@ -150,13 +151,13 @@ def kalkulator_menu():
         <div style="background-color:{selected_color}; padding: 25px; border-radius: 12px; text-align: center; margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
             <h3 style="color: white; margin-bottom: 15px; font-size: 28px;">✅ Hasil Ditemukan! ✅</h3>
             <p style="font-size: 22px; font-weight: normal; color: white;">
-                Dengan Jari-jari **{radius:.2f}** dan Sudut Pusat **{sudut_derajat:.1f}°**:
+                Dengan Jari-jari **{radius:.2f} cm** dan Sudut Pusat **{sudut_derajat:.1f}°**:
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white; margin-top: 15px;">
-                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f}</span> cm
+                Panjang Busur: <span style="color: yellow;">{panjang_busur:.4f} cm</span> # Perubahan di sini
             </p>
             <p style="font-size: 36px; font-weight: bolder; color: white;">
-                Luas Juring: <span style="color: yellow;">{luas_juring:.4f}</span> cm²
+                Luas Juring: <span style="color: yellow;">{luas_juring:.4f} cm²</span> # Perubahan di sini
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -189,8 +190,8 @@ def penjelasan_rumus_menu():
     st.latex(r'''s = r \times \theta_{radian}''')
     st.markdown("""
     Di mana:
-    * $s$ = Panjang Busur
-    * $r$ = Jari-jari lingkaran (jarak dari pusat ke tepi lingkaran)
+    * $s$ = Panjang Busur (cm)
+    * $r$ = Jari-jari lingkaran (cm)
     * $\\theta_{radian}$ = Sudut pusat juring dalam satuan **radian**
 
     **Penting:** Jika sudut yang Anda miliki dalam **derajat**, Anda harus mengubahnya terlebih dahulu ke radian menggunakan rumus konversi:
@@ -205,8 +206,8 @@ def penjelasan_rumus_menu():
     st.latex(r'''A = \frac{1}{2} r^2 \times \theta_{radian}''')
     st.markdown("""
     Di mana:
-    * $A$ = Luas Juring
-    * $r$ = Jari-jari lingkaran
+    * $A$ = Luas Juring (cm²)
+    * $r$ = Jari-jari lingkaran (cm)
     * $\\theta_{radian}$ = Sudut pusat juring dalam satuan **radian**
 
     Sama seperti panjang busur, jika sudut Anda dalam **derajat**, Anda perlu mengonversinya ke radian terlebih dahulu.
